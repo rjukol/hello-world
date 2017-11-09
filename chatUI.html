@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>simple chat application User Interface</title>
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,500,900" rel="stylesheet">
+	<style>
+	*{margin:0;padding:0;font-family: 'Roboto', sans-serif;}
+		.body-container {
+			position: fixed;
+			bottom:5px;
+			width:70%;
+			margin:0 auto;
+			left:18%;
+		}
+		.section-left {
+			float:left;
+			width:70%;
+		}
+
+		.section-right {
+			float:right;
+			width:30%;
+		}
+		.section-left input {
+			width:91%;
+			height:50px;
+			border:none;
+			border-bottom:1px solid #cec7c7;
+			padding-left:30px;
+			padding-right:30px;
+			outline: none;
+			font-size:16px;
+		}
+		.section-right input {
+			width:100%;
+			height:51px;
+			border:none;
+			cursor:pointer;
+			outline: none;
+			background-color: #f27c21;
+    		text-transform: uppercase;
+    		color: #f9f8f5;	
+    		font-size:18px;	
+    	}
+    	.body-top-container {
+    		width:70%;
+			margin:0 auto;
+			overflow:hidden;
+			padding-left:30px;
+		}
+		.body-top-container p {
+			margin-top:2px;
+			margin-bottom:2px;
+			font-size:14px;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="body-top-container">
+		
+	</div>
+
+	<div class="body-container">
+			<div class="section-left">
+				<input type="text" id="msgBox"  placeholder="Write Your Message Here" />
+			</div>
+
+			<div class="section-right">
+				<input type="submit" value="send" id="sendBtn"/>
+			</div>
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script>
+			$(document).ready(function(){
+				// var your_msg = $('#msgBox').val();
+				$('#sendBtn').click(function(){
+     				var getMsg = $(this).parent().prev().children().val();
+     				console.log(getMsg);
+     				$( "body" ).find('.body-top-container').append("<p><b>You:</b> " + getMsg + "</p>");
+     				$('#msgBox').val("");
+				});
+			});
+	</script>
+</body>
+</html>
